@@ -1,0 +1,63 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+
+// See the original forge folder for comments around this gradle file.
+version = "${mod_version}"
+ext {
+    modid = "${mod_id}"
+    modname = "${mod_name}"
+    moddescription = "${mod_description}"
+}
+group = "${mod_group}.${mod_id}"
+archivesBaseName = "${mod_jar_base_name}"
+
+sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+minecraft {
+    version = "${minecraft_version}-${forge_version}"
+    runDir = "run"
+    mappings = "${forge_mappings}"
+
+    replace "@VERSION@", project.version
+    replace "@MOD_ID@", project.modid
+    replace "@MOD_NAME@", project.modname
+    replace "@MOD_DESCRIPTION@", project.moddescription
+    replaceIn "Main.java"
+}
+
+repositories {
+
+}
+
+dependencies {
+
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+    inputs.property "modid", project.modid
+    inputs.property "modname", project.modname
+    inputs.property "moddescription", project.moddescription
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version, 'modid':project.modid, 'modname':project.modname, 'moddescription':project.moddescription
+    }
+        
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}

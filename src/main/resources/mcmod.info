@@ -1,0 +1,17 @@
+[
+{
+  "//": "The mod id must be provided here to run with GradleStart(Server)",
+  "modid": "firstmod",
+  "name": "${modname}",
+  "description": "${moddescription}",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Michael Bradley"],
+  "credits": "The Forge and FML guys",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
