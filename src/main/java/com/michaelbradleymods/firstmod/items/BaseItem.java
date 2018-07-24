@@ -1,15 +1,15 @@
 package com.michaelbradleymods.firstmod.items;
 
-import com.michaelbradleymods.firstmod.init.ModItems;
 import com.michaelbradleymods.firstmod.util.IHasModel;
+import com.michaelbradleymods.firstmod.util.annotations.ItemDefinition;
 import net.minecraft.item.Item;
 
-public abstract class BaseItem extends Item implements IHasModel
+@ItemDefinition
+abstract class BaseItem extends Item implements IHasModel
 {
-    public BaseItem(String name) {
+    BaseItem(final String name)
+    {
         setUnlocalizedName(name);
         setRegistryName(name);
-
-        ModItems.ITEMS.add(this);
     }
 }

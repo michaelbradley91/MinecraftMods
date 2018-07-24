@@ -34,7 +34,7 @@ minecraft {
     replace "@MOD_ID@", project.modid
     replace "@MOD_NAME@", project.modname
     replace "@MOD_DESCRIPTION@", project.moddescription
-    replaceIn "Main.java"
+    replaceIn "ModInformation.java"
 }
 
 repositories {
@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-
+    
 }
 
 processResources {
@@ -54,9 +54,9 @@ processResources {
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-        expand 'version':project.version, 'mcversion':project.minecraft.version, 'modid':project.modid, 'modname':project.modname, 'moddescription':project.moddescription
+        expand 'version': project.version, 'mcversion': project.minecraft.version, 'modid': project.modid, 'modname': project.modname, 'moddescription': project.moddescription
     }
-        
+
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }

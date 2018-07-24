@@ -4,14 +4,14 @@ import com.michaelbradleymods.firstmod.Main;
 import com.michaelbradleymods.firstmod.util.IHasModel;
 import net.minecraft.creativetab.CreativeTabs;
 
-public abstract class MaterialItem extends BaseItem implements IHasModel
+abstract class MaterialItem extends BaseItem implements IHasModel
 {
-    public MaterialItem(final String name)
+    MaterialItem(final String name)
     {
         this(name, CreativeTabs.MISC);
     }
 
-    public MaterialItem(final String name, final CreativeTabs creativeTab)
+    private MaterialItem(final String name, final CreativeTabs creativeTab)
     {
         super(name);
         setCreativeTab(creativeTab);
